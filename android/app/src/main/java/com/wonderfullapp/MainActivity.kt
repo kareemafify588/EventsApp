@@ -5,6 +5,9 @@ import com.facebook.react.ReactActivityDelegate
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
 import com.facebook.react.defaults.DefaultReactActivityDelegate
 
+import android.os.Bundle
+
+
 class MainActivity : ReactActivity() {
 
   /**
@@ -12,6 +15,13 @@ class MainActivity : ReactActivity() {
    * rendering of the component.
    */
   override fun getMainComponentName(): String = "WonderfullAPP"
+  override fun onCreate(savedInstanceState: Bundle?) {
+      // Important: call super first to let RN set up
+      super.onCreate(null)
+      // Switch from SplashTheme -> your normal app theme (defined in styles.xml)
+      // Replace AppTheme with whatever your app uses.
+      setTheme(R.style.AppTheme)
+  }
 
   /**
    * Returns the instance of the [ReactActivityDelegate]. We use [DefaultReactActivityDelegate]
